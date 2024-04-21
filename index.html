@@ -2,21 +2,20 @@
 <html>
 <!--https://www.w3schools.com/js/tryit.asp?filename=tryjs_timing_clock-->
 <!--https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_copy_clipboard-->
-<body onload="startTime()">
+<body>
 
-<h2>JavaScript Clock</h2>
+<a href="https://github.dev/twjmy/unixtimestamp" target="_blank"><h2>Unix Timestamp Clock</h2></a>
 
-<input type="text" id="myInput">
-<button onclick="myFunction()">Copy text</button>
-
-<br><a href="https://discord.com/developers/docs/reference#message-formatting-timestamp-styles" target="_blank">
+<input type="text" id="timestamp" onload="startTime()"> <button onclick="copyInput()">Copy</button>
+<br>
+<a href="https://discord.com/developers/docs/reference#message-formatting-timestamp-styles" target="_blank">
   #message-formatting-timestamp-styles - Discord Developer Portal — Documentation — Reference
 </a>
 
 <script>
-function myFunction() {
+function copyInput() {
   // Get the text field
-  var copyText = document.getElementById("myInput");
+  var copyText = document.getElementById("timestamp");
 
   // Select the text field
   copyText.select();
@@ -27,7 +26,7 @@ function myFunction() {
 }
 
 function startTime() {
-  document.getElementById('myInput').value = parseInt(new Date().getTime() / 1000);
+  document.getElementById('timestamp').value = parseInt(new Date().getTime() / 1000);
   setTimeout(startTime, 1000 - new Date() % 1000);
 }
 </script>
