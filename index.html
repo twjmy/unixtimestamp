@@ -5,17 +5,18 @@
 <body onload="startTime()">
 
 <a href="https://github.dev/twjmy/unixtimestamp" target="_blank"><h2>Unix Timestamp Clock</h2></a>
-
-<input type="text" id="timestamp"> <button onclick="copyInput()">Copy</button>
-<br>
 <a href="https://discord.com/developers/docs/reference#message-formatting-timestamp-styles" target="_blank">
   #message-formatting-timestamp-styles - Discord Developer Portal — Documentation — Reference
 </a>
+<br>
+<p>In second: <input type="text" id="second"> <button onclick="copyInput(`timestamp`)">Copy</button></p>
+<br>
+<p>In millisecond: <input type="text" id="millisecond"> <button onclick="copyInput(`millisecond`)">Copy</button>
 
 <script>
-function copyInput() {
+function copyInput(mode) {
   // Get the text field
-  var copyText = document.getElementById("timestamp");
+  var copyText = document.getElementById(mode);
 
   // Select the text field
   copyText.select();
@@ -26,7 +27,8 @@ function copyInput() {
 }
 
 function startTime() {
-  document.getElementById('timestamp').value = parseInt(new Date().getTime() / 1000);
+  document.getElementById('millisecond').value = parseInt(new Date().getTime());
+  document.getElementById('second').value = parseInt(new Date().getTime() / 1000);
   setTimeout(startTime, 1000 - new Date() % 1000);
 }
 </script>
