@@ -29,15 +29,15 @@ function copyInput(mode) {
 }
 
 function startTime() {
-  document.getElementById('millisecond').value = parseInt(new Date().getTime());
-  document.getElementById('second').value = parseInt(new Date().getTime() / 1000);
+  document.getElementById('millisecond').value = parseInt(Date.now());
+  document.getElementById('second').value = parseInt(Date.now() / 1000);
   setTimeout(startTime, 1000 - new Date() % 1000);
 }
 
 function istartTime() {
   setInterval(function(){
-    document.getElementById('imillisecond').value = parseInt(new Date().getTime());
-    document.getElementById('isecond').value = parseInt(new Date().getTime() / 1000);
+    document.getElementById('imillisecond').value = parseInt(Date.now());
+    document.getElementById('isecond').value = parseInt(Date.now() / 1000);
   }, 1000);
 }
 </script>
